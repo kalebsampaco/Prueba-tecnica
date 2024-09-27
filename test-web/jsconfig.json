@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "baseUrl": "src",
+        "paths": {
+            "@defaultTramite/*": ["src/app/main/apps/tramitesAmbientales/default/*"]
+        }
+    },
+    "include": [
+        "src"
+    ]
+}

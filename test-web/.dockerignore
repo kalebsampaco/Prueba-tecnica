@@ -1,0 +1,20 @@
+.idea
+.DS_Store
+
+/node_modules
+.gitignore
+*.zip
+
+# build
+# **/*.js
+# **/*.js.map
+# **/*.d.ts
+dist
+node_modules
+dist
+.git
+*.log
+data/
+.platform
+.notebook
+.ebextensions

@@ -1,0 +1,52 @@
+
+services:
+  app:
+    build: .
+    environment:
+      DB_HOST: database
+      DB_USER: admin
+      DB_PASS: admin
+      DB_PORT: 3306
+      DB_NAME: admin
+      APP_PORT: 3000
+    restart: unless-stopped
+    ports:
+      - 3001:3000
+    depends_on:
+      - database
+    links:
+      - database
+    env_file: ./.env
+
+  front:
+    build: ./test-web
+    environment:
+      REACT_APP_API_URL: http://localhost:3001/api/v1
+
+    restart: unless-stopped
+    ports:
+      - 80:3000
+    depends_on:
+      - database
+    env_file: ./test-web/.env.dev
+
+  database:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'admin'
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: 'admin'
+      # You can use whatever password you like
+      MYSQL_PASSWORD: 'admin'
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: 'admin'
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '3306:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+      # Where our data will be persisted
+    volumes:
+      - ./data:/var/lib/mysql

@@ -1,0 +1,19 @@
+# tmp
+.idea
+.DS_Store
+
+# lib
+node_modules
+
+# build
+# **/*.js
+# **/*.js.map
+# **/*.d.ts
+dist
+.env
+*.zip
+# Ignorar archivos de datos de MySQL
+data/mysql.sock
+data/*.cnf
+data/binlog.index
+data/ib_buffer_pool

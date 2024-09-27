@@ -1,0 +1,36 @@
+import { authMiddleware } from "../functions/authentication";
+import {
+  getDocumentationAnnexes,
+  getDocumentationAnnexesV2,
+  getAnnexesForTram,
+  createAnexosToTram,
+  editAnexosToTram
+} from "../controllers/tramDocumentoTramite.controller";
+
+export default [
+  {
+    path: "/documentacion_anexos/:id",
+    method: "get",
+    action: authMiddleware(getDocumentationAnnexes),
+  },
+  {
+    path: "/documentacion_anexos_v2/:id",
+    method: "get",
+    action: authMiddleware(getDocumentationAnnexesV2),
+  },
+  {
+    path: "/get_anexos_tramite",
+    method: "get",
+    action: authMiddleware(getAnnexesForTram),
+  },
+  {
+    path: "/add_anexo_to_tramite",
+    method: "post",
+    action: authMiddleware(createAnexosToTram),
+  },
+  {
+    path: "/update_anexo_to_tramite",
+    method: "post",
+    action: authMiddleware(editAnexosToTram),
+  },
+];
