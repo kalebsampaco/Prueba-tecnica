@@ -10,7 +10,6 @@ node_modules
 # **/*.js.map
 # **/*.d.ts
 dist
-.env
 *.zip
 # Ignorar archivos de datos de MySQL
 data/mysql.sock
