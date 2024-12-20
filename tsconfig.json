@@ -12,7 +12,7 @@
       "allowJs": true
   },
   "include": [
-      "src/**/*.ts", 
+      "src/**/*.ts",
       "src/sub_process/*.js"
   ],
   "exclude": [

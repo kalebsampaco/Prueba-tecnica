@@ -2,19 +2,17 @@ import { NextFunction, Request, Response } from "express";
 
 export function originHandler(req: Request, res: Response, next: NextFunction) {
   const ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://localhost",
+    "localhost:3001",
+    "localhost",
   ];
 
   const ALLOWED_USER_AGENTS = [
     "SendGrid Event API",
     // ... cualquier otro user agent que quieras permitir en el futuro
   ];
-
   if (process.env.NODE_ENV === "production") {
-    const origin = req.headers.origin as string;
+    const origin = req.headers.host as string;
     const userAgent = req.headers["user-agent"] as string;
-
     if (!origin && !userAgent) {
       respond(res, 202, "Origin is not defined");
       return;

@@ -16,3 +16,4 @@ data/mysql.sock
 data/*.cnf
 data/binlog.index
 data/ib_buffer_pool
+test-web

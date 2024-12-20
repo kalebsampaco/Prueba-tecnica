@@ -1,23 +1,22 @@
 import {
-  Table,
-  Model,
+  AutoIncrement,
+  BelongsTo,
   Column,
   Comment,
-  Default,
-  DataType,
-  PrimaryKey,
-  AutoIncrement,
   CreatedAt,
-  UpdatedAt,
+  DataType,
+  Default,
   ForeignKey,
-  BelongsTo,
+  Model,
+  PrimaryKey,
+  Table,
+  UpdatedAt,
 } from "sequelize-typescript";
-import Users from "./users";
-import CliUsuario from "./cliUsuario";
 import Roles from "./roles";
+import Users from "./users";
 
 /**
- * @author Juan Rosero
+ * @author kalebsampaco
  * @description Class to create model Role ADDITIONAL
  */
 

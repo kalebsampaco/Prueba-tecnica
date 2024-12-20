@@ -6,7 +6,7 @@ import Sequelize = require('sequelize');
 const OP = Sequelize.Op;
 
 /**
- * @author Styk Medina
+ * @author kalebsampaco
  * @description Function search by where
  * if receive an object to organize the variables and returns an object to filter the condition
  * @param {object} Where

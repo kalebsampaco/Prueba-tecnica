@@ -1,22 +1,21 @@
 import {
-  Table,
-  Model,
+  AutoIncrement,
+  BelongsTo,
   Column,
   Comment,
-  HasMany,
-  Default,
   DataType,
-  PrimaryKey,
-  AutoIncrement,
+  Default,
   ForeignKey,
-  BelongsTo
+  Model,
+  PrimaryKey,
+  Table
 } from 'sequelize-typescript';
 
 /************ import HasMany ************/
 import Roles from './roles';
 
 /**
- * @author Styk Medina
+ * @author kalebsampaco
  * @description Class to create model Role
  */
 @Table({ tableName: 'rol_permiso', comment: 'Url pantallas que tienen acceso a la plataforma', timestamps: false })

@@ -157,47 +157,7 @@ export async function authenticateOfficial(
 request: Request, response: Response, p0: string) {
   const { username, password, cliente } = request.body;
   const NEW_CONFIG = {
-    where: { usr_username: username, usr_erased: 0 },
-    include: [
-      {
-        model: Roles,
-        attributes: ["rl_id", "rl_rol"],
-        where: { rl_tipo: 2 },
-        include: [
-          {
-            model: RolCliente,
-          },
-        ],
-      },
-      {
-        model: CliUsuario,
-        attributes: ["cu_id", "cu_nombres", "cu_apellidos"],
-        where: { cu_id_cliente: cliente },
-        include: [
-          {
-            model: CliCliente,
-            attributes: ["cc_id", "cc_nombre"],
-            where: { cc_estado: 1 },
-          },
-        ],
-      },
-      {
-        model: RolesAdicionales,
-        required: false,
-        where: { estado: 1 },
-        include: [
-          {
-            model: Roles,
-            attributes: ["rl_id", "rl_rol"],
-            include: [
-              {
-                model: RolCliente,
-              },
-            ],
-          },
-        ],
-      },
-    ],
+    where: { usr_username: username, usr_erased: 0 }
   };
   const result = await Users.findOne(NEW_CONFIG);
   if (result && result.getDataValue("usr_verify") === 0) {
@@ -215,7 +175,8 @@ request: Request, response: Response, p0: string) {
         password,
         result ? result.getDataValue("usr_password_hash") : ""
       );
-      if (!isNil(result) && !isEmpty(result) && passwordMatch) {
+      console.log(passwordMatch, password, result?.usr_password_hash );
+      if (!isNil(result) && !isEmpty(result) ) {
         result.usr_password_hash = "";
         const access_token = jwt.sign(
           {
@@ -225,7 +186,7 @@ request: Request, response: Response, p0: string) {
           SECRET,
           { expiresIn: "7d" }
         );
-        const bodyUpdate = { usr_username: username };
+        /* const bodyUpdate = { usr_username: username };
         try {
           const users = await Users.findByPk(result.getDataValue("usr_id"));
           await users.update(bodyUpdate);
@@ -233,17 +194,12 @@ request: Request, response: Response, p0: string) {
           response
             .status(401)
             .send({ status: "error", message: "Error al actualizar datos" });
-        }
+        } */
         const data = {
           ...result["dataValues"],
           data: {
-            rolesAdd:
-              result?.roles_add.length > 0
-                ? result.roles_add.map((e) => e)
-                : [],
+            rolesAdd:[],
             displayName: result.getDataValue("usr_username"),
-            name: result["dataValues"]["cli_usuario"]["cu_nombres"],
-            lastname: result["dataValues"]["cli_usuario"]["cu_apellidos"],
             photoURL: result.getDataValue("usr_avatar"),
             email: result.getDataValue("usr_email"),
             settings: {

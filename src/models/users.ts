@@ -23,7 +23,7 @@ import CliCliente from "./cliCliente";
 import CliUsuario from "./cliUsuario";
 import RolesAdicionales from "./rolesAdicionales";
 /**
- * @author Styk Medina
+ * @author kalebsampaco
  * @description Class to create model Users
  */
 @Table({ tableName: "users", comment: "Usuarios", timestamps: false })

@@ -52,6 +52,15 @@ export async function registerFunctionary(
             "¡El email que ha ingresado YA existe! Verifique e intente de nuevo.",
         });
     }
+    if (reg_password.length < 6) {
+      response
+        .status(201)
+        .send({
+          status: "info",
+          message:
+            "La contraseña tiene menos de 6 caracteres",
+        });
+    }
     // ------------------------------------------------------------
     const passEncrypt = await getHash(reg_password);
     const code = Math.floor(Math.random() * 1000 + 1000);
@@ -65,8 +74,8 @@ export async function registerFunctionary(
         usr_phone: reg_celular,
         usr_verify:1,
         usr_sms_code: code,
-        usr_creator_id: 1,
-        usr_editor_id: 1,
+        usr_creator_id: 7,
+        usr_editor_id: 7,
         usr_created_at: new Date(),
         usr_updated_at: new Date(),
       })
@@ -90,8 +99,8 @@ export async function registerFunctionary(
         cu_celular: reg_celular,
         cu_estado: 1,
         cu_genero: reg_genero,
-        cu_id_creador: 5,
-        cu_id_editor: 5,
+        cu_id_creador: 7,
+        cu_id_editor: 7,
         cu_fecha_creacion: new Date(),
         cu_fecha_edicion: new Date(),
       })

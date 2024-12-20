@@ -19,7 +19,7 @@ import RolesAdicionales from "./rolesAdicionales";
 import Users from "./users";
 
 /**
- * @author Styk Medina
+ * @author kalebsampaco
  * @description Class to create model Role
  */
 @Table({ tableName: "roles", comment: "Roles", timestamps: false })

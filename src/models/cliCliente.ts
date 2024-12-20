@@ -24,7 +24,7 @@ import Users from './users';
  * @author kalebsam
  * @description Class to create model Role
  */
-@Table({ tableName: 'cli_cliente', comment: 'Empresas o Corporaciones que tendrán VIGPRO', timestamps: false })
+@Table({ tableName: 'cli_cliente', comment: '', timestamps: false })
 export default class CliCliente extends Model<CliCliente> {
 
     @AutoIncrement

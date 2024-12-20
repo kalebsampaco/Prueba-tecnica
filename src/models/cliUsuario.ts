@@ -18,7 +18,7 @@ import CliCliente from "./cliCliente";
 import Roles from "./roles";
 import Users from "./users";
 /**
- * @author Styk Medina
+ * @author kalebsampaco
  * @description Class to create model Role
  */
 @Table({

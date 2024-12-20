@@ -1,26 +1,24 @@
 import {
-  Table,
-  Model,
+  AutoIncrement,
+  BelongsTo,
   Column,
   Comment,
-  HasMany,
-  Default,
   DataType,
-  PrimaryKey,
-  AutoIncrement,
   ForeignKey,
-  BelongsTo
+  Model,
+  PrimaryKey,
+  Table
 } from 'sequelize-typescript';
 
 /************ import HasMany ************/
-import Roles from './roles';
 import CliCliente from './cliCliente';
+import Roles from './roles';
 
 /**
- * @author Styk Medina
+ * @author kalebsampaco
  * @description Class to create model Role
  */
-@Table({ tableName: 'rol_cliente', comment: 'Roles Equivalentes del Cliente Vs Roles de VIGPRO', timestamps: false })
+@Table({ tableName: 'rol_cliente', comment: '', timestamps: false })
 export default class RolCliente extends Model<RolCliente> {
 
   @AutoIncrement
