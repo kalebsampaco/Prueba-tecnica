@@ -4,6 +4,7 @@ export function originHandler(req: Request, res: Response, next: NextFunction) {
   const ALLOWED_ORIGINS = [
     "localhost:3001",
     "localhost",
+    "7e5d-2-153-224-126.ngrok-free.app"
   ];
 
   const ALLOWED_USER_AGENTS = [
