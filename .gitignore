@@ -13,7 +13,7 @@ dist
 *.zip
 # Ignorar archivos de datos de MySQL
 data/mysql.sock
-data/*.cnf
-data/binlog.index
-data/ib_buffer_pool
+# data/*.cnf
+# data/binlog.index
+# data/ib_buffer_pool
 test-web
